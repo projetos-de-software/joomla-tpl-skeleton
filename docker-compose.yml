@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # Postgresql
+  dcs-postgres:
+    image: postgres:15.3-alpine
+    container_name: dcs-postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=102030
+      - POSTGRES_USER=postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./docker/data:/var/lib/postgresql/data
+  
+  # PG Admin 
+  dcs-pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: dcs-pgadmin
+    restart: always
+    depends_on:
+      - dcs-postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: marcos@local
+      PGADMIN_DEFAULT_PASSWORD: 102030
+    ports:
+      - 8080:80
+    volumes:
+      - ./docker/pgadmin:/var/lib/pgadmin
+
+  # Redis
+  dcs-redis:
+    image:
+    container_name: dcs-redis
+
+  # PHP 
+  dcs-php:
+    image:
+    container_name: dcs-php
+  
+  # NGINX
+  dcs-nginx: 
+    image: 
+    container_name: dcs-nginx
+  
+networks:
+  default:
+    name: local-network
+    external: true

@@ -1,0 +1,4 @@
+joomla-template:
+    infra:
+        ☐ TODO: docker-compose com postgres, redis, php e nginx @critical
+        ☐ TODO: build template node @high
