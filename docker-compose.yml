@@ -2,49 +2,68 @@ version: '3.8'
 
 services:
   # Postgresql
-  dcs-postgres:
+  joomla-postgres:
     image: postgres:15.3-alpine
-    container_name: dcs-postgres
+    container_name: joomla-postgres
     restart: always
     environment:
       - POSTGRES_PASSWORD=102030
       - POSTGRES_USER=postgres
     ports:
-      - 5432:5432
+      - "5432:5432"
     volumes:
-      - ./docker/data:/var/lib/postgresql/data
+      - ./docker/data/pg:/var/lib/postgresql/data
+      
   
   # PG Admin 
-  dcs-pgadmin:
+  joomla-pgadmin:
     image: dpage/pgadmin4:latest
-    container_name: dcs-pgadmin
+    container_name: joomla-pgadmin
     restart: always
     depends_on:
-      - dcs-postgres
+      - joomla-postgres
     environment:
-      PGADMIN_DEFAULT_EMAIL: marcos@local
+      PGADMIN_DEFAULT_EMAIL: user@local.com
       PGADMIN_DEFAULT_PASSWORD: 102030
     ports:
-      - 8080:80
+      - "8080:80"
     volumes:
       - ./docker/pgadmin:/var/lib/pgadmin
 
   # Redis
-  dcs-redis:
-    image:
-    container_name: dcs-redis
+  joomla-redis:
+    image: redis
+    container_name: joomla-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./docker/redis:/data
+    command: redis-server --appendonly yes
 
   # PHP 
-  dcs-php:
-    image:
-    container_name: dcs-php
+  joomla-php:
+    build: ./docker/php    
+    container_name: joomla-php
+    volumes:
+      - ./www:/www
+    environment:
+      - SESSION_HANDLER=redis
+      - SESSION_PATH=tcp://redis:6379?auth=${REDIS_PASSWORD}
+      - SESSION_MAX_TIME_LIFE=86400
+
   
   # NGINX
   dcs-nginx: 
-    image: 
-    container_name: dcs-nginx
-  
+    image: nginx
+    container_name: joomla-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx/site.conf:/etc/nginx/conf.d/site.conf
+      - ./src:/www
+
 networks:
   default:
     name: local-network
-    external: true
+    
