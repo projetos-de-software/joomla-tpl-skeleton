@@ -1,4 +1,4 @@
-FROM php:8.4-fpm-alpine
+FROM php:8.3-fpm-alpine
 
 RUN apk add --update --no-cache --virtual .build-deps \
   linux-headers g++ make autoconf yaml-dev

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="template" client="site">
+    <name>joomla-skeleton</name>
+    <version>1.0</version>
+    <creationDate>2025-01</creationDate>
+    <author>Projetos de Software</author>
+    <authorEmail>contato@projetosdesoftware.com.br</authorEmail>
+    <copyright>(C) 2025 Projetos de Software</copyright>
+    <description>JOOMLA_TPL_SKELETON_DESCRIPTION</description>
+    <inheritable>1</inheritable>
+
+    <files>
+        <filename>index.php</filename>
+        <filename>joomla.asset.json</filename>
+        <filename>templateDetails.xml</filename>
+    </files>
+
+    <media destination="templates/site/skeleton" folder="media">
+        <folder>js</folder>
+        <folder>css</folder>
+        <folder>scss</folder>
+        <folder>images</folder>
+    </media>
+
+    <languages folder="language">
+        <language tag="pt-BR">pt-BR/tpl_skeleton.ini</language>
+        <language tag="pt-BR">pt-BR/tpl_skeleton.sys.ini</language>
+    </languages>
+
+    <positions>
+        <position></position>
+    </positions>
+
+    <config>
+    
+    </config>
+
+</extension>

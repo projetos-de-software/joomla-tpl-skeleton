@@ -1,4 +1,7 @@
 joomla-template:
     infra:
-        ☐ TODO: docker-compose com postgres, redis, php e nginx @critical
+        ✔ TODO: docker-compose com postgres, redis, php e nginx @critical @done(24-12-30 16:42)
         ☐ TODO: build template node @high
+    fix: 
+        ☐ TODO: corrigir problemas de permissões em volumes no postgres, redis e pgadmin. @low 
+        

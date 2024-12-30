@@ -43,7 +43,7 @@ services:
       - 6379:6379
     volumes:
       - ./docker/redis:/data
-    command: redis-server --appendonly yes
+    command: redis-server --appendonly yes 
     networks:
       - local-network
 
@@ -55,7 +55,7 @@ services:
       - ./src:/var/www/html
     environment:
       - SESSION_HANDLER=redis
-      - SESSION_PATH=tcp://redis:6379?auth=${REDIS_PASSWORD}
+      - SESSION_PATH=tcp://redis:6379
       - SESSION_MAX_TIME_LIFE=86400
     links:
       - joomla-redis
