@@ -10,25 +10,29 @@ services:
       - POSTGRES_PASSWORD=102030
       - POSTGRES_USER=postgres
     ports:
-      - "5432:5432"
+      - 5432:5432
     volumes:
       - ./docker/data/pg:/var/lib/postgresql/data
+    networks:
+      - local-network
       
   
   # PG Admin 
   joomla-pgadmin:
-    image: dpage/pgadmin4:latest
+    image: dpage/pgadmin4
     container_name: joomla-pgadmin
     restart: always
     depends_on:
       - joomla-postgres
     environment:
-      PGADMIN_DEFAULT_EMAIL: user@local.com
-      PGADMIN_DEFAULT_PASSWORD: 102030
+      PGADMIN_DEFAULT_EMAIL: "user@local.com"
+      PGADMIN_DEFAULT_PASSWORD: "102030"
     ports:
-      - "8080:80"
+      - 8000:80
     volumes:
       - ./docker/pgadmin:/var/lib/pgadmin
+    networks:
+      - local-network
 
   # Redis
   joomla-redis:
@@ -36,34 +40,44 @@ services:
     container_name: joomla-redis
     restart: always
     ports:
-      - "6379:6379"
+      - 6379:6379
     volumes:
       - ./docker/redis:/data
     command: redis-server --appendonly yes
+    networks:
+      - local-network
 
   # PHP 
   joomla-php:
     build: ./docker/php    
     container_name: joomla-php
     volumes:
-      - ./www:/www
+      - ./src:/var/www/html
     environment:
       - SESSION_HANDLER=redis
       - SESSION_PATH=tcp://redis:6379?auth=${REDIS_PASSWORD}
       - SESSION_MAX_TIME_LIFE=86400
+    links:
+      - joomla-redis
+    networks:
+      - local-network
 
   
   # NGINX
-  dcs-nginx: 
-    image: nginx
+  joomla-nginx: 
+    image: nginx:latest
     container_name: joomla-nginx
     ports:
-      - "80:80"
+      - 80:80
     volumes:
       - ./docker/nginx/site.conf:/etc/nginx/conf.d/site.conf
-      - ./src:/www
+      - ./src:/var/www/html
+    links:
+      - joomla-php
+    networks:
+      - local-network
 
 networks:
-  default:
-    name: local-network
+  local-network:
+    driver: bridge
     
