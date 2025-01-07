@@ -12,7 +12,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./docker/data/pg:/var/lib/postgresql/data
+      - postgres-volume:/var/lib/postgresql/data
     networks:
       - local-network
       
@@ -30,7 +30,7 @@ services:
     ports:
       - 8000:80
     volumes:
-      - ./docker/pgadmin:/var/lib/pgadmin
+      - pgadmin-volume:/var/lib/pgadmin
     networks:
       - local-network
 
@@ -42,7 +42,7 @@ services:
     ports:
       - 6379:6379
     volumes:
-      - ./docker/redis:/data
+      - redis-volume:/data
     command: redis-server --appendonly yes 
     networks:
       - local-network
@@ -80,4 +80,11 @@ services:
 networks:
   local-network:
     driver: bridge
-    
+
+volumes:
+  postgres-volume:
+    external: false
+  pgadmin-volume:
+    external: false
+  redis-volume:
+    external: false

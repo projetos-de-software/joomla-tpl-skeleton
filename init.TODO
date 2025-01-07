@@ -1,7 +1,19 @@
 joomla-template:
     infra:
-        ✔ TODO: docker-compose com postgres, redis, php e nginx @critical @done(24-12-30 16:42)
         ☐ TODO: build template node @high
-    fix: 
-        ☐ TODO: corrigir problemas de permissões em volumes no postgres, redis e pgadmin. @low 
-        
+    docs: 
+        ☐ TODO: como subir o template @critical
+    features:
+        ☐ TODO: .gitignore para módulos @low
+        ☐ TODO: .gitignore para componentes @low
+    código: 
+        ☐ TODO: Organizar posições do template skeleton @high
+        ☐ TODO: adicionar os css, js do template joomla-starter @critical
+
+Archive:
+  ✔ TODO: php-gd @high @done(25-01-06 22:17) @project(joomla-template.infra)
+  ✔ TODO: php-gzip @high @done(25-01-06 22:17) @project(joomla-template.infra)
+  ✔ TODO: docker-compose com postgres, redis, php e nginx @critical @done(24-12-30 16:42) @project(joomla-template.infra)
+  ✔ TODO: permissão postgresql docker-compose @low @done(25-01-06 13:57) @project(joomla-template.fix)
+  ✔ TODO: permissão pgadmin docker-compose @low @done(25-01-06 13:57) @project(joomla-template.fix)
+  ✔ TODO: permissão do código-fonte PHP @high @done(25-01-06 13:57) @project(joomla-template.fix)

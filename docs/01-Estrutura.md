@@ -17,8 +17,8 @@ Todos os diretórios estarão explicados a partir da raiz do projeto.
 |  .github  | Diretório de Configuração de software para o Github (Actions) |
 |  .husky   |       Diretório de configuração do Husky para o projeto       |
 |  .vscode  |              Diretório de Configuração do VScode              |
-| document  |             Diretório de Documentação do Sistema              |
-|  script   |                  Diretório de scripts (bash)                  |
+|   docs    |             Diretório de Documentação do Sistema              |
+|  script   |               Diretório de scripts (bash/node)                |
 |    src    |            Diretório Fonte do Projeto do Template             |
 |  updates  |       Diretório Fonte do Arquivo de checagem de Updates       |
 
@@ -47,7 +47,7 @@ O diretório do VScode é um diretório que guarda as configurações de projeto
 |   06   |                   TODO+                   |            Arquivos de catalogação de tarefas dentro do Vscode             |
 
 
-### Document 
+### Docs 
 
 Este diretório encontra-se os documentos de todo o projeto. Eu optei por fazer neste formato para que ao baixar o repositório você possua tudo na máquina. 
 

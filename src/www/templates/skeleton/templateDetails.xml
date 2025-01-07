@@ -9,6 +9,8 @@
     <description>JOOMLA_TPL_SKELETON_DESCRIPTION</description>
     <inheritable>1</inheritable>
 
+    <scriptfile>script.php</scriptfile>
+
     <files>
         <filename>index.php</filename>
         <filename>joomla.asset.json</filename>
@@ -32,7 +34,21 @@
     </positions>
 
     <config>
-    
+        <fields name="params">
+            <fieldset name="advanced">
+                <field
+                    name="testparam"
+                    type="radio"
+                    label="JOOMLA_SKELETON_TPL_TESTLABEL"
+                    default="1"
+                    layout="joomla.form.field.radio.switcher"
+                    filter="boolean"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+            </fieldset>
+        </fields>
     </config>
 
 </extension>

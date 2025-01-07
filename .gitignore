@@ -4,6 +4,7 @@ docker/pgadmin
 docker/redis
 src/logs
 src/tmp
+dist/*
 
 # Joomla 
 src/www/administrator

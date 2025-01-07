@@ -2,7 +2,9 @@
 
 ## Notas iniciais
 
-[Marcos]: # 'Colocar aqui a introdução do repositório de nomenclaturas'
+Por questões de organização do repositório, eu criei um repositório, que chamei de first repository, onde explico as nomenclaturas de todos os repositórios que crio dentro do [projetos de sotware](https://projetosdesoftware.com.br).
+
+Acesse o site do [repositório de documentação](https://github.com/projetos-de-software/first-repository).
 
 ## Introdução
 
@@ -36,11 +38,8 @@ Nesse repositório você possui duas opções:
 
 
 
-## Documentação Adicional
+## Documentação 
 
 | Número |                                  Descrição                                   |
 | :----: | :--------------------------------------------------------------------------: |
 |   01   |        [Estrutura de Diretórios do Projeto](document/01-Estrutura.md)        |
-|   02   | [Como funciona um template básico em Joomla](document/02-Como%20Funciona.md) |
-|   03   |               [Commits Convencionais](document/03-Commits.md)                |
-|   04   |           [Versionamento Semântico](document/04-Versionamento.md)            |
