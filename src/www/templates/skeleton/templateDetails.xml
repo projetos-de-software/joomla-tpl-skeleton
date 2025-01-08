@@ -30,12 +30,18 @@
     </languages>
 
     <positions>
-        <position></position>
+        <position>header</position>
+		<position>footer</position>
+		<position>sidebar</position>
+		<position>search</position>
+		<position>breadcrumbs</position>
+		<position>menu</position>
+		<position>content-top</position>
     </positions>
 
     <config>
         <fields name="params">
-            <fieldset name="advanced">
+            <fieldset name="parametros">
                 <field
                     name="testparam"
                     type="radio"
