@@ -1,16 +1,19 @@
 joomla-template:
     infra:
         ☐ TODO: build template node @high
+        ☐ TODO: Deploy UpdateServer @low
     docs: 
         ☐ TODO: como subir o template @critical
     features:
         ☐ TODO: .gitignore para módulos @low
         ☐ TODO: .gitignore para componentes @low
+        ☐ TODO: UpdateServer.xml - init @high
     código: 
-        ☐ TODO: Organizar posições do template skeleton @high
-        ☐ TODO: adicionar os css, js do template joomla-starter @critical
+        ☐ TODO: 
 
 Archive:
+  ✔ TODO: Organizar posições do template skeleton @high @done(25-01-09 16:41) @project(joomla-template.código)
+  ✔ TODO: adicionar os css, js do template joomla-starter @critical @done(25-01-09 16:41) @project(joomla-template.código)
   ✔ TODO: php-gd @high @done(25-01-06 22:17) @project(joomla-template.infra)
   ✔ TODO: php-gzip @high @done(25-01-06 22:17) @project(joomla-template.infra)
   ✔ TODO: docker-compose com postgres, redis, php e nginx @critical @done(24-12-30 16:42) @project(joomla-template.infra)

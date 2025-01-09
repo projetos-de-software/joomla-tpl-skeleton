@@ -17,7 +17,9 @@
         "prepare": "husky",
         "commit": "git-cz",
         "release": "standard-version",
-        "build:template": ""
+        "build:template": "",
+        "deploy:update": "",
+        "deploy:package":""
     },
     "config": {
         "commitizen": {
